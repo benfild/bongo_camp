@@ -1,29 +1,58 @@
 <%- include ("../partials/header") -%>
 <div class="container">
-    <h1>This is the show template</h1>
-    <div class="row" style="display:flex; flex-wrap:wrap;">
-        <div class="col-lg-12 col-md-12 col-sm-12">
-            <div class="card mt-2">
-                <img class="card-img-top" src="<%= campground.image %>" alt="">
-                <div class="card-title mt-2 mb-0 ml-2">
-                    <h4><%= campground.name %></h4>
-                </div>
-                <p class="card-description ml-2">
-                    <%= campground.description %>
-                </p>
-                <div class="ui left labeled button ml-2 mb-2" tabindex="0">
-                    <div class="ui basic right pointing label">
-                        <p><%= campground.comments.length %>    <i class="comments icon"></i></p>
+    <div class="row">
+        <div class="ui yellow segment col-md-3">
+            <p class="lead">BongoCamp</p>
+            <div class="ui raised segments">
+                <li class="ui segment active">Info 1</li>
+                <li class="ui segment">Info 2</li>
+                <li class="ui segment">Info 3</li>
+                <!-- MAP SPACE -->
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="ui fluid card mt-2">
+                <img class="ui fluid image" src="<%= campground.image %>" alt="">
+                <div class="content">
+                    <div class="content">
+                        <span class="right floated"><strong>$10.00/night</strong></span>
+                        <div class="header">
+                            <h4><a href="#"><%= campground.name %></a></h4>
+                        </div>
+                        <div class="description">
+                            <p class="justify-content"> <%= campground.description %> </p>
+                        </div>
                     </div>
-                    <a class="ui blue button" href="/campgrounds/<%= campground._id %>/comments/new">Add Comment</a>
                 </div>
-                <% campground.comments.forEach(function(comment) { %>
-                <div class="card-description ml-2">
-                    <p>
-                        <strong><%= comment.author %></strong> - <%= comment.text %>
-                    </p>
+            </div>
+            <div class="ui fluid card">
+                <div class="content">
+                    <div class="ui fluid comments">
+                        <h3 class="ui dividing header">Comments</h3>
+                        <div class="comments">
+                            <div class="right aligned">
+                                <div class="ui left labeled button ml-2 mb-2" tabindex="0">
+                                    <div class="ui basic right pointing label">
+                                        <p><i class="comments icon"></i> <%= campground.comments.length %> comments</p>
+                                    </div>
+                                    <a class="ui blue button" href="/campgrounds/<%= campground._id %>/comments/new">Add
+                                        Comment</a>
+                                </div>
+                            </div>
+
+                            <% campground.comments.forEach(function(comment) { %>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <strong><%= comment.author %></strong>
+                                    <span class="right floated">10 days ago</span>
+                                    <p><%= comment.text %></p>
+                                </div>
+                            </div>
+                            <%}); %>
+                        </div>
+                    </div>
+
                 </div>
-                <%}); %>
             </div>
         </div>
     </div>

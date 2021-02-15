@@ -11,7 +11,7 @@ var data = [{
     {
         name: "UDSM",
         image: "https://cdn.pixabay.com/photo/2014/11/27/18/36/tent-548022__340.jpg",
-        description: "This is the huge UDSM"
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
     },
     {
         name: "UDOM",
@@ -21,17 +21,17 @@ var data = [{
     {
         name: "DIT",
         image: "https://cdn.pixabay.com/photo/2015/03/26/10/29/camping-691424__340.jpg",
-        description: "This is the DIT in Tech"
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
     },
     {
         name: "UDSM",
         image: "https://cdn.pixabay.com/photo/2014/11/27/18/36/tent-548022__340.jpg",
-        description: "This is the UDSM"
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
     },
     {
         name: "UDOM",
         image: "https://cdn.pixabay.com/photo/2016/02/18/22/16/tent-1208201__340.jpg",
-        description: "This is the another UDOM"
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
     }
 ];
 
@@ -56,7 +56,7 @@ function seedDB() {
                         }, function (err, comment) {
                             if (err) {
                                 console.log(err)
-                            } else{
+                            } else {
                                 campground.comments.push(comment);
                                 campground.save();
                                 console.log("added a new comment");
