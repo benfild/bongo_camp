@@ -11,23 +11,19 @@
                 <p class="card-description ml-2">
                     <%= campground.description %>
                 </p>
+                <div class="ui left labeled button ml-2 mb-2" tabindex="0">
+                    <div class="ui basic right pointing label">
+                        <p><%= campground.comments.length %>    <i class="comments icon"></i></p>
+                    </div>
+                    <a class="ui blue button" href="/campgrounds/<%= campground._id %>/comments/new">Add Comment</a>
+                </div>
                 <% campground.comments.forEach(function(comment) { %>
                 <div class="card-description ml-2">
                     <p>
                         <strong><%= comment.author %></strong> - <%= comment.text %>
                     </p>
-                    <!-- <div class="ui labeled button" tabindex="0">
-                        <div class="ui blue button">
-                            <i class="comments icon"></i>Add Comment
-                        </div>
-                        <a class="ui basic  left pointing label" href="/campgrounds/<%= campground._id %>/comments/new">
-                            1,048
-                        </a>
-                    </div> -->
-                    <a class="ui blue button" href="/campgrounds/<%= campground._id %>/comments/new"><i class="comments icon"></i>Add a comment</a>
                 </div>
                 <%}); %>
-
             </div>
         </div>
     </div>
