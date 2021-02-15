@@ -15,6 +15,7 @@ mongoose.connect("mongodb://localhost:27017/bongo_camp", {
     useUnifiedTopology: true
 }); //db connection
 app.set("view engine", "ejs");
+app.use(express.static("public"));
 app.use(bodyParser.urlencoded({
     extended: true
 }));
