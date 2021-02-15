@@ -1,21 +1,30 @@
 <%- include ("../partials/header") -%>
 <div class="container">
     <h1>This is the show template</h1>
-    <div class="row text-center" style="display:flex; flex-wrap:wrap;">
+    <div class="row" style="display:flex; flex-wrap:wrap;">
         <div class="col-lg-12 col-md-12 col-sm-12">
             <div class="card mt-2">
                 <img class="card-img-top" src="<%= campground.image %>" alt="">
-                <div class="card-title mt-2 mb-0">
+                <div class="card-title mt-2 mb-0 ml-2">
                     <h4><%= campground.name %></h4>
                 </div>
-                <p class="card-description">
+                <p class="card-description ml-2">
                     <%= campground.description %>
                 </p>
                 <% campground.comments.forEach(function(comment) { %>
-                <div class="card-description">
+                <div class="card-description ml-2">
                     <p>
                         <strong><%= comment.author %></strong> - <%= comment.text %>
                     </p>
+                    <!-- <div class="ui labeled button" tabindex="0">
+                        <div class="ui blue button">
+                            <i class="comments icon"></i>Add Comment
+                        </div>
+                        <a class="ui basic  left pointing label" href="/campgrounds/<%= campground._id %>/comments/new">
+                            1,048
+                        </a>
+                    </div> -->
+                    <a class="ui blue button" href="/campgrounds/<%= campground._id %>/comments/new"><i class="comments icon"></i>Add a comment</a>
                 </div>
                 <%}); %>
 
