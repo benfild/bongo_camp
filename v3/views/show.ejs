@@ -1,0 +1,26 @@
+<%- include ("partials/header") -%>
+<div class="container">
+    <h1>This is the show template</h1>
+    <div class="row text-center" style="display:flex; flex-wrap:wrap;">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="card mt-2">
+                <img class="card-img-top" src="<%= campground.image %>" alt="">
+                <div class="card-title mt-2 mb-0">
+                    <h4><%= campground.name %></h4>
+                </div>
+                <p class="card-description">
+                    <%= campground.description %>
+                </p>
+                <% campground.comments.forEach(function(comment) { %>
+                <div class="card-description">
+                    <p>
+                        <strong><%= comment.author %></strong> - <%= comment.text %>
+                    </p>
+                </div>
+                <%}); %>
+
+            </div>
+        </div>
+    </div>
+</div>
+<%- include ("partials/footer") -%>
