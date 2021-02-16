@@ -25,7 +25,7 @@
                     </div>
                 </div>
             </div>
-            <div class="ui fluid card">
+            <div class="mb-2 ui fluid card">
                 <div class="content">
                     <div class="ui minimal comments">
                         <h3 class="ui dividing header">Comments</h3>
@@ -40,11 +40,11 @@
                             </div>
                             <%}); %>
                             <div class="right aligned mt-2">
-                                <div class="ui left labeled button ml-2 mb-2" tabindex="0">
+                                <div class="mini ui left labeled button ml-2 mb-2" tabindex="0">
                                     <div class="ui basic right pointing label">
                                         <p><i class="comments icon"></i> <%= campground.comments.length %> comments</p>
                                     </div>
-                                    <a class="ui blue button" href="/campgrounds/<%= campground._id %>/comments/new">Add
+                                    <a class="mini ui blue button" href="/campgrounds/<%= campground._id %>/comments/new">Add
                                         Comment</a>
                                 </div>
                             </div>

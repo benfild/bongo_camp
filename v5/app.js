@@ -10,10 +10,11 @@ var seedDB = require("./seed");
 
 
 seedDB();
+//db connection
 mongoose.connect("mongodb://localhost:27017/bongo_camp", {
     useNewUrlParser: true,
     useUnifiedTopology: true
-}); //db connection
+}); 
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({
