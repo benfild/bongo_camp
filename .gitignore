@@ -4,6 +4,6 @@
 # Ada Library Information
 *.ali
 
-/v5/node_modules/
+/v6/node_modules/
 /node_modules/
 /.vscode/
