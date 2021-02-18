@@ -152,13 +152,19 @@ app.post("/register", function (req, res){
     User.register(newUSer, req.body.password, function (err, user){
         if (err){
             console.log(err);
-            return res.render("register")
+            return res.render("register");
         }
         passport.authenticate("local")(req, res, function(){
             res.redirect("/campgrounds");
         });
     });
 });
+
+//show login form
+app.get("/login", function(req, res) {
+    res.render("login");
+});
+
 
 app.listen(PORT, process.env.IP, function () {
     console.log("Server started at:" + PORT);
