@@ -1,14 +1,19 @@
 <%- include ("partials/header") -%>
-<form class="ui form">
-    <div class="field">
-        <label>Username</label>
-        <input type="text" name="username" placeholder="username">
-    </div>
-    <div class="field">
-        <label>Password</label>
-        <input type="password" name="password" placeholder="password">
-    </div>
-    <button class="ui button" type="submit">Submit</button>
-</form>
+<div class="container">
+    <h1 style="text-align: center;">Create a New Campground</h1>
+    
+    <form class="ui large form" action="/register" method="post">
+        <div class="form-group eight wide = field">
+            <label>Username</label>
+            <input type="text" name="username" placeholder="username">
+        </div>
+        <div class="form-group eight wide field">
+            <label>Password</label>
+            <input type="password" name="password" placeholder="password">
+        </div>
+        <button class="ui button" type="submit">Sign Up</button>
+    </form>
+</div>
+
 
 <%- include ("partials/footer") -%>
