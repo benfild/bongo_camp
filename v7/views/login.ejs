@@ -1,0 +1,16 @@
+<%- include ("partials/header") -%>
+<div class="container">
+    <form class="ui big form" style="margin: 20px auto; width: 50%;" action="/login" method="post">
+        <h1 class="text-center">Login</h1>
+        <div class="form-group">
+            <input class="form-control ui field" type="text" name="username" placeholder="username">
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="password" name="password" placeholder="password">
+        </div>
+        <div class="form-group text-center"><button class="ui button" type="submit">Login</button></div> 
+    </form>
+</div>
+
+
+<%- include ("partials/footer") -%>
