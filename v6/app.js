@@ -10,8 +10,6 @@ const   express = require("express"),
         User = require("./models/user"),
         seedDB = require("./seed");
 
-
-seedDB();
 //db connection
 mongoose.connect("mongodb://localhost:27017/bongo_camp", {
     useNewUrlParser: true,
@@ -22,6 +20,21 @@ app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({
     extended: true
 }));
+seedDB();
+
+app.use(require("express-session")({
+    secret: "benward loves Sharifa",
+    resave: false,
+    saveUninitialized: false
+}));
+
+// PASSPORT CONFIGURATION
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
 
 
 //RESTFUL ROUTES
@@ -124,6 +137,14 @@ app.post("/campgrounds/:id/comments", function (req, res){
             });
         }
     });
+});
+
+//=====================
+// AUTH ROUTES
+//=====================
+//show register from
+app.get("/register", function (req, res){
+    res.render("register");
 });
 
 app.listen(PORT, process.env.IP, function () {
