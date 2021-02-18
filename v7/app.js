@@ -146,6 +146,19 @@ app.post("/campgrounds/:id/comments", function (req, res){
 app.get("/register", function (req, res){
     res.render("register");
 });
+// handle sign up logic
+app.post("/register", function (req, res){
+    const newUSer = new User({username: req.body.username});
+    User.register(newUSer, req.body.password, function (err, user){
+        if (err){
+            console.log(err);
+            return res.render("register")
+        }
+        passport.authenticate("local")(req, res, function(){
+            res.redirect("/campgrounds");
+        });
+    });
+});
 
 app.listen(PORT, process.env.IP, function () {
     console.log("Server started at:" + PORT);
