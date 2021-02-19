@@ -62,7 +62,7 @@ app.get("/campgrounds", function (req, res) {
 
 });
 
-app.post("/campgrounds", function (req, res) {
+app.post("/campgrounds", isLoggedIn,function (req, res) {
     // get data from form and add to camgnd array
     var name = req.body.name;
     var image = req.body.image;
@@ -86,7 +86,7 @@ app.post("/campgrounds", function (req, res) {
     });
 });
 
-app.get('/campgrounds/new', function (req, res) {
+app.get('/campgrounds/new', isLoggedIn,function (req, res) {
     res.render("campgrounds/new");
 });
 
