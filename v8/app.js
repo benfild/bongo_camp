@@ -55,7 +55,7 @@ app.get("/campgrounds", function (req, res) {
         } else {
             res.render("campgrounds/index", {
                 campGrounds: allCampgrounds,
-                currentUser: req.user
+                // currentUser: req.user
             });
         }
     });
