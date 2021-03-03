@@ -23,7 +23,7 @@ app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({
     extended: true
 }));
-seedDB();
+// seedDB(); //seed the database
 
 app.use(require("express-session")({
     secret: "benward loves Sharifa",
