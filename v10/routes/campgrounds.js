@@ -57,7 +57,6 @@ router.get('/:id', function (req, res) {
         if (err) {
             console.log(err);
         } else {
-            console.log(foundCamp);
             //render show template with that campground
             res.render("campgrounds/show", {
                 campground: foundCamp
@@ -81,9 +80,9 @@ router.get("/:id/edit", checkCampgroundOwnership, function (req, res) {
 });
 
 // UPDATE Camp route
-router.put("/:id", function (req, res) {
+router.put("/:id", checkCampgroundOwnership,function (req, res) {
     // find and update the correct campground
-    Campground.findByIdAndUpdate(req.params.id, req.body.campground, function (err, updatedCamp) {
+    Campground.findByIdAndUpdate(req.params.id, req.body.campground, function (err) {
         if (err) {
             console.log(err);
             res.redirect("/campgrounds");
@@ -95,7 +94,7 @@ router.put("/:id", function (req, res) {
 });
 
 //DELETE Campground
-router.delete("/:id", function (req, res) {
+router.delete("/:id", checkCampgroundOwnership,function (req, res) {
     //find and delete the correct campground
     Campground.findByIdAndRemove(req.params.id, function (err) {
         if (err) {
