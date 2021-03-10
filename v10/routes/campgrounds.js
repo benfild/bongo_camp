@@ -69,23 +69,36 @@ router.get('/:id', function (req, res) {
 
 // EDIT Camp route
 router.get("/:id/edit", function (req, res) {
-    Campground.findById(req.params.id, function (err, foundCamp) {
-        if (err) {
-            console.log(err);
-            res.redirect("/campgrounds");
-        } else {
-            res.render("campgrounds/edit", {
-                campground: foundCamp
-            });
-        }
-    });
+    //is user logged in?
+    if (req.isAuthenticated()) {
+        Campground.findById(req.params.id, function (err, foundCamp) {
+            if (err) {
+                console.log(err);
+                res.redirect("/campgrounds");
+            } else {
+                // does the user own the campground?
+                if (foundCamp.author.id.equals(req.user._id)) {
+                    res.render("campgrounds/edit", {
+                        campground: foundCamp
+                    });
+                } else {
+                    res.send("You are not allowed to edit this campground");
+                }
+            }
+        });
+    } else {
+        res.send("You need to be logged in to edit this");
+    }
+
+    // if not logged in
+
 });
 
 // UPDATE Camp route
 router.put("/:id", function (req, res) {
     // find and update the correct campground
-    Campground.findByIdAndUpdate(req.params.id, req.body.campground, function (err, updatedCamp){
-        if(err) {
+    Campground.findByIdAndUpdate(req.params.id, req.body.campground, function (err, updatedCamp) {
+        if (err) {
             console.log(err);
             res.redirect("/campgrounds");
         } else {
@@ -98,8 +111,8 @@ router.put("/:id", function (req, res) {
 //DELETE Campground
 router.delete("/:id", function (req, res) {
     //find and delete the correct campground
-    Campground.findByIdAndRemove(req.params.id, function (err){
-        if(err) {
+    Campground.findByIdAndRemove(req.params.id, function (err) {
+        if (err) {
             console.log(err);
             res.redirect("/campgrounds");
         } else {
