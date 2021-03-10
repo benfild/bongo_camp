@@ -66,32 +66,18 @@ router.get('/:id', function (req, res) {
     });
 });
 
-
 // EDIT Camp route
-router.get("/:id/edit", function (req, res) {
-    //is user logged in?
-    if (req.isAuthenticated()) {
-        Campground.findById(req.params.id, function (err, foundCamp) {
-            if (err) {
-                console.log(err);
-                res.redirect("/campgrounds");
-            } else {
-                // does the user own the campground?
-                if (foundCamp.author.id.equals(req.user._id)) {
-                    res.render("campgrounds/edit", {
-                        campground: foundCamp
-                    });
-                } else {
-                    res.send("You are not allowed to edit this campground");
-                }
-            }
+router.get("/:id/edit", checkCampgroundOwnership, function (req, res) {
+    Campground.findById(req.params.id, function (err, foundCamp) {
+        if (err) {
+            console.log(err);
+            res.redirect("back");
+        } else {
+           res.render("campgrounds/edit", {
+            campground: foundCamp
         });
-    } else {
-        res.send("You need to be logged in to edit this");
-    }
-
-    // if not logged in
-
+        }
+    });
 });
 
 // UPDATE Camp route
@@ -122,12 +108,33 @@ router.delete("/:id", function (req, res) {
 });
 
 
-//middleware
+//MIDDLEWARES
 function isLoggedIn(req, res, next) {
     if (req.isAuthenticated()) {
         return next();
     }
     res.redirect("/login");
+}
+
+function checkCampgroundOwnership(req, res, next) {
+    //is user logged in?
+    if (req.isAuthenticated()) {
+        Campground.findById(req.params.id, function (err, foundCamp) {
+            if (err) {
+                res.redirect("back");
+            } else {
+                // does the user own the campground?
+                if (foundCamp.author.id.equals(req.user._id)) {
+                    next();
+                } else {
+                    res.redirect("back");
+                }
+            }
+        });
+    } else {
+        // if not logged in
+        res.redirect("back");
+    }
 }
 
 
