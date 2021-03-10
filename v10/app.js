@@ -5,6 +5,7 @@ const   express = require("express"),
         mongoose = require("mongoose"),
         passport = require("passport"),
         LocalStrategy = require("passport-local"),
+        methodOverride = require("method-override"),
         User = require("./models/user"),
         seedDB = require("./seed");
 
@@ -23,6 +24,7 @@ app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({
     extended: true
 }));
+app.use(methodOverride("_method"));
 // seedDB(); //seed the database
 
 app.use(require("express-session")({
@@ -30,6 +32,7 @@ app.use(require("express-session")({
     resave: false,
     saveUninitialized: false
 }));
+
 
 // PASSPORT CONFIGURATION
 app.use(passport.initialize());

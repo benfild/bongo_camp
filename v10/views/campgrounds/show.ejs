@@ -21,8 +21,13 @@
                         </div>
                         <div class="description">
                             <p class="justify-content"> <%= campground.description %> </p>
-                            <p class="text-muted">Submitted by: <strong><%= campground.author.username %></strong><p>
+                            <p class="text-muted">Submitted by: <strong><%= campground.author.username %></strong>
+                                <p>
                         </div>
+                        <p>
+                            <a href="/campgrounds/<%= campground._id %>/edit"
+                                class="btn btn-md btn-outline-warning">Edit</a>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -45,7 +50,8 @@
                                     <div class="ui basic right pointing label">
                                         <p><i class="comments icon"></i> <%= campground.comments.length %> comments</p>
                                     </div>
-                                    <a class="mini ui blue button" href="/campgrounds/<%= campground._id %>/comments/new">Add
+                                    <a class="mini ui blue button"
+                                        href="/campgrounds/<%= campground._id %>/comments/new">Add
                                         Comment</a>
                                 </div>
                             </div>
