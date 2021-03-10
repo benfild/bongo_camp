@@ -24,10 +24,14 @@
                             <p class="text-muted">Submitted by: <strong><%= campground.author.username %></strong>
                                 <p>
                         </div>
-                        <p>
+                        <div>
                             <a href="/campgrounds/<%= campground._id %>/edit"
                                 class="btn btn-md btn-outline-warning">Edit</a>
-                        </p>
+                            <form id="form-delete" action="/campgrounds/<%= campground._id %>?_method=DELETE"
+                                method="post">
+                                <button class="btn btn-md btn-outline-danger">Delete</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>

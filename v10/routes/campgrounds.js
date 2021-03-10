@@ -67,7 +67,7 @@ router.get('/:id', function (req, res) {
 });
 
 
-// Edit Camp route
+// EDIT Camp route
 router.get("/:id/edit", function (req, res) {
     Campground.findById(req.params.id, function (err, foundCamp) {
         if (err) {
@@ -81,7 +81,7 @@ router.get("/:id/edit", function (req, res) {
     });
 });
 
-// Update Camp route
+// UPDATE Camp route
 router.put("/:id", function (req, res) {
     // find and update the correct campground
     Campground.findByIdAndUpdate(req.params.id, req.body.campground, function (err, updatedCamp){
@@ -93,6 +93,19 @@ router.put("/:id", function (req, res) {
         }
     });
     //redirect show page
+});
+
+//DELETE Campground
+router.delete("/:id", function (req, res) {
+    //find and delete the correct campground
+    Campground.findByIdAndRemove(req.params.id, function (err){
+        if(err) {
+            console.log(err);
+            res.redirect("/campgrounds");
+        } else {
+            res.redirect("/campgrounds")
+        }
+    });
 });
 
 
