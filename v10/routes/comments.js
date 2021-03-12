@@ -80,21 +80,20 @@ router.put("/:comment_id",function (req, res) {
             res.redirect("/campgrounds/" + req.params.id);
         }
     });
-    //redirect show page
 });
 
-// //DELETE Campground
-// router.delete("/:id", checkCampgroundOwnership,function (req, res) {
-//     //find and delete the correct campground
-//     Campground.findByIdAndRemove(req.params.id, function (err) {
-//         if (err) {
-//             console.log(err);
-//             res.redirect("/campgrounds");
-//         } else {
-//             res.redirect("/campgrounds")
-//         }
-//     });
-// });
+//DELETE Comment
+router.delete("/:comment_id",function (req, res) {
+    //find and delete the correct campground
+    Comment.findByIdAndRemove(req.params.comment_id, function (err) {
+        if (err) {
+            console.log(err);
+            res.redirect("/campgrounds/" + req.params.id);
+        } else {
+            res.redirect("/campgrounds/" + req.params.id)
+        }
+    });
+});
 
 //middleware
 function isLoggedIn(req, res, next) {
