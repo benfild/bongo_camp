@@ -17,7 +17,8 @@ const campgroundRoutes = require("./routes/campgrounds");
 //db connection
 mongoose.connect("mongodb://localhost:27017/bongo_camp", {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useFindAndModify: false,
 }); 
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
