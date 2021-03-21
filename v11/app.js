@@ -3,11 +3,12 @@ const   express = require("express"),
         PORT = process.env.port || 3000,
         bodyParser = require("body-parser"),
         mongoose = require("mongoose"),
+        flash = require("connect-flash"),
         passport = require("passport"),
         LocalStrategy = require("passport-local"),
         methodOverride = require("method-override"),
-        User = require("./models/user"),
-        seedDB = require("./seed");
+        User = require("./models/user");
+        // seedDB = require("./seed");
 
 //ROUTES IMPORTS
 const campgroundRoutes = require("./routes/campgrounds");
@@ -26,6 +27,8 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 app.use(methodOverride("_method"));
+app.use(flash());
+
 // seedDB(); //seed the database
 
 app.use(require("express-session")({
