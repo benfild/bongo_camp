@@ -4,7 +4,7 @@ const express = require('express'),
       User = require('../models/user');
       
 
-//route rout
+//route route
 router.get("/", function (req, res) {
     res.render("landing");
 });
@@ -22,9 +22,11 @@ router.post("/register", function (req, res){
     User.register(newUSer, req.body.password, function (err, user){
         if (err){
             console.log(err);
+            req.flash("error", err.message);
             return res.render("register");
         }
         passport.authenticate("local")(req, res, function(){
+            req.flash("success", "Welcome to BongoCamp! " + user.username);
             res.redirect("/campgrounds");
         });
     });
@@ -42,7 +44,7 @@ router.post("/login", passport.authenticate("local", {
 //Logout route
 router.get("/logout", function(req, res){
     req.logout();
-    req.flash("success", "Logged out!")
+    req.flash("success", "Logged out!");
     res.redirect("/campgrounds");
 });
 
