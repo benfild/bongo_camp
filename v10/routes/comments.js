@@ -3,10 +3,11 @@ const express = require("express"),
         mergeParams: true
     }),
     Campground = require("../models/campground"),
-    Comment = require("../models/comment");
+    Comment = require("../models/comment"),
+    middleware = require("../middleware");
 
 //comment new
-router.get("/new", isLoggedIn, function (req, res) {
+router.get("/new", middleware.isLoggedIn, function (req, res) {
     //find campground by id
     Campground.findById(req.params.id, function (err, campground) {
         if (err) {
