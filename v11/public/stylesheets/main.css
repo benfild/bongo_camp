@@ -22,6 +22,14 @@ body{
     letter-spacing: 3px;
 }
 
+input, .input i{
+    margin: 25px auto 0 auto !important;
+    height: 40px !important;
+    padding: 25px 10px !important;
+    font-size: 20px !important;
+    outline: none !important;
+}
+
 .btn-nom{
     margin-top: 20px;
     border-radius: 25px !important;
