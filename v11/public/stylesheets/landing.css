@@ -47,7 +47,7 @@ body {
 #landing-header h1 {
     font-family: "Aldrich";
   color: #fff;
-  font-size: 100px;
+  font-size: 90px;
 }
 
 #view {
@@ -120,4 +120,9 @@ span {
   30% {
     opacity: 0
   }
+}
+
+/* Older browser support - .no-cssanimations class added by modernizr */
+.no-cssanimations .slideshow li {
+	opacity: 1;
 }
