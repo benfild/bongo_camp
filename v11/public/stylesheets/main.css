@@ -10,3 +10,31 @@ body{
 #inline{
     display: inline;
 }
+
+.login-form{
+    margin: 20px auto; 
+    width: 40%;
+    font-size: 80px !important;
+}
+
+.login-form h1{
+    font-size: 50px;
+    letter-spacing: 3px;
+}
+
+.btn-nom{
+    margin-top: 20px;
+    border-radius: 25px !important;
+    cursor: pointer;
+    font-size: 16px !important;
+    transition: 0.35s !important;
+}
+
+button:hover {
+    /* color: var(--white-color);
+    background: var(--main-color) !important;
+    box-shadow: 2px 4px 30px rgba(0, 0, 0, 0.1);
+    color: var(--white-color) !important;
+    background: var(--main-color) !important; */
+    transform: scale(1.1);
+}
