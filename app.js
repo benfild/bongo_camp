@@ -7,6 +7,7 @@ const express = require("express"),
     LocalStrategy = require("passport-local"),
     methodOverride = require("method-override"),
     User = require("./models/user");
+const { options } = require("./routes/campgrounds");
 // seedDB = require("./seed");
 // PORT = process.env.port || 3000,
 
@@ -32,13 +33,14 @@ app.use(flash());
 // seedDB(); //seed the database
 //-momery unleaked---------
 app.set('trust proxy', 1);
-
-app.use(require("express-session")({
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
+app.use(session({
     cookie: {
         secure: true,
         maxAge: 60000
     },
-    store: new RedisStore(),
+    store: new MongoStore(options),
     secret: "benward loves Sharifa",
     resave: false,
     saveUninitialized: true
