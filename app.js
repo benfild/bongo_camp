@@ -9,16 +9,14 @@ const   express = require("express"),
         User = require("./models/user");
         // seedDB = require("./seed");
         // PORT = process.env.port || 3000,
-
+        
 //ROUTES IMPORTS
 const campgroundRoutes = require("./routes/campgrounds");
       commentRoutes = require("./routes/comments");
       indexRoutes = require("./routes/index");
 
-      
 //db connection
-const MONGO_URI = process.env.MONGO_URI;
-mongoose.connect(MONGO_URI, {
+mongoose.connect("mongodb+srv://benfild-admin:benfildlove0654@cluster0.mtnqq.mongodb.net/bongo_camp", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
