@@ -1,6 +1,6 @@
 const   express = require("express"),
         app = express(),
-        PORT = process.env.port || 3000,
+        // PORT = process.env.port || 3000,
         bodyParser = require("body-parser"),
         mongoose = require("mongoose"),
         flash = require("connect-flash"),
@@ -61,6 +61,4 @@ app.use("/campgrounds/:id/comments", commentRoutes);
 
 
 
-app.listen(PORT, process.env.IP, function () {
-    console.log("Server started at:" + PORT);
-});
+app.listen(process.env.PORT, process.env.IP);

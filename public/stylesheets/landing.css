@@ -87,7 +87,7 @@ span {
 
 .slideshow li:nth-child(1) { 
   /* background-image: url(http://i.imgur.com/K3mPv14.jpg)  */
-  background-image: url("../images/caves.jpg");
+  background-image: url("../images/snow.jpg");
 }
 .slideshow li:nth-child(2) { 
   /* background-image: url(http://i.imgur.com/SBEmFpv.jpg); */
@@ -106,7 +106,7 @@ span {
 }
 .slideshow li:nth-child(5) { 
   /* background-image: url(http://i.imgur.com/TVGe0Ef.jpg); */
-  background-image: url("../images/snow.jpg");
+  background-image: url("../images/caves.jpg");
   animation-delay: 40s; 
 }
 
