@@ -8,6 +8,7 @@ const express = require("express"),
     methodOverride = require("method-override"),
     User = require("./models/user");
 const { options } = require("./routes/campgrounds");
+MONGO_URI="mongodb+srv://benfild-admin:benfildlove0654@cluster0.mtnqq.mongodb.net/bongo_camp"
 // seedDB = require("./seed");
 // PORT = process.env.port || 3000,
 
@@ -56,13 +57,6 @@ app.use(session({
     resave: false,
     saveUninitialized: false
 }));
-
-app.use(function (req, res, next) {
-    if (!req.session) {
-        return next(new Error('Oh no')) //handle error
-    }
-    next() //otherwise continue
-});
 
 
 // PASSPORT CONFIGURATION
