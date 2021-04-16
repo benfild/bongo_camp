@@ -34,16 +34,27 @@ app.use(flash());
 //-momery unleaked---------
 app.set('trust proxy', 1);
 const session = require('express-session');
-const MongoStore = require('connect-mongo')(session);
+const mongoDbStore = require("connect-mongodb-session")(session);
+
+const mongoStore = new mongoDbStore(
+  {
+    uri: MONGO_URI,
+    collection: "session",
+  },
+  (err) => {
+    if (err) console.log(err);
+  }
+);
+
 app.use(session({
     cookie: {
         secure: true,
         maxAge: 60000
     },
-    store: new MongoStore(options),
+    store: mongoStore,
     secret: "benward loves Sharifa",
     resave: false,
-    saveUninitialized: true
+    saveUninitialized: false
 }));
 
 app.use(function (req, res, next) {
