@@ -1,6 +1,5 @@
 const   express = require("express"),
         app = express(),
-        // PORT = process.env.port || 3000,
         bodyParser = require("body-parser"),
         mongoose = require("mongoose"),
         flash = require("connect-flash"),
@@ -9,7 +8,8 @@ const   express = require("express"),
         methodOverride = require("method-override"),
         User = require("./models/user");
         // seedDB = require("./seed");
-
+        // PORT = process.env.port || 3000,
+        
 //ROUTES IMPORTS
 const campgroundRoutes = require("./routes/campgrounds");
       commentRoutes = require("./routes/comments");
