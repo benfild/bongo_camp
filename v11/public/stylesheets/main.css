@@ -11,6 +11,11 @@ body{
     display: inline;
 }
 
+a span {
+  color: #fd1468;
+  font-weight: bold;
+}
+
 .login-form{
     margin: 20px auto; 
     width: 40%;
