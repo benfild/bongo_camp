@@ -8,7 +8,7 @@ const express = require("express"),
     methodOverride = require("method-override"),
     User = require("./models/user");
 const { options } = require("./routes/campgrounds");
-MONGO_URI="mongodb+srv://benfild-admin:benfildlove0654@cluster0.mtnqq.mongodb.net/bongo_camp"
+MONGO_URI= process.env.MONGO_URI
 // seedDB = require("./seed");
 // PORT = process.env.port || 3000,
 
@@ -18,7 +18,7 @@ commentRoutes = require("./routes/comments");
 indexRoutes = require("./routes/index");
 
 //db connection
-mongoose.connect("mongodb+srv://benfild-admin:benfildlove0654@cluster0.mtnqq.mongodb.net/bongo_camp", {
+mongoose.connect(MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
