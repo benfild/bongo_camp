@@ -7,15 +7,16 @@ const express = require("express"),
     LocalStrategy = require("passport-local"),
     methodOverride = require("method-override"),
     User = require("./models/user");
-const { options } = require("./routes/campgrounds");
-MONGO_URI= process.env.MONGO_URI
+
+require("dotenv").config();  
+const MONGO_URI= process.env.MONGO_URI;
 // seedDB = require("./seed");
 // PORT = process.env.port || 3000,
 
 //ROUTES IMPORTS
-const campgroundRoutes = require("./routes/campgrounds");
-commentRoutes = require("./routes/comments");
-indexRoutes = require("./routes/index");
+const campgroundRoutes = require("./routes/campgrounds"),
+      commentRoutes = require("./routes/comments"),
+      indexRoutes = require("./routes/index");
 
 //db connection
 mongoose.connect(MONGO_URI, {
