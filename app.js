@@ -49,10 +49,6 @@ const mongoStore = new mongoDbStore(
 );
 
 app.use(session({
-    cookie: {
-        secure: true,
-        maxAge: 60000
-    },
     store: mongoStore,
     secret: "benward loves Sharifa",
     resave: false,
