@@ -19,7 +19,7 @@ h1 span {
   color: #fd1468;
   font-weight: bold;
 }
-
+/* 
 .login-form{
     margin: 20px auto; 
     width: 40%;
@@ -29,15 +29,15 @@ h1 span {
 .login-form h1{
     font-size: 50px;
     letter-spacing: 3px;
-}
+} */
 
-input, .input i{
+/* input, .input i{
     margin: 25px auto 0 auto !important;
     height: 40px !important;
     padding: 25px 10px !important;
     font-size: 20px !important;
     outline: none !important;
-}
+} */
 
 .btn-nom{
     margin-top: 20px;
@@ -47,11 +47,11 @@ input, .input i{
     transition: 0.35s !important;
 }
 
-button:hover {
+/* button:hover {
     /* color: var(--white-color);
     background: var(--main-color) !important;
     box-shadow: 2px 4px 30px rgba(0, 0, 0, 0.1);
     color: var(--white-color) !important;
     background: var(--main-color) !important; */
-    transform: scale(1.1);
-}
+    /* transform: scale(1.1); */
+/* } */

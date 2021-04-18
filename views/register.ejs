@@ -1,17 +1,5 @@
 <%- include ("partials/header") -%>
-<!-- <div class="container">
-    <form class="ui big form" style="margin: 20px auto; width: 50%;" action="/register" method="post">
-        <h1 class="text-center">Register</h1>
-        <div class="form-group">
-            <input class="form-control ui field" type="text" name="username" placeholder="username">
-        </div>
-        <div class="form-group">
-            <input class="form-control" type="password" name="password" placeholder="password">
-        </div>
-        <div class="form-group text-center"><button class="ui button" type="submit">Sign Up</button></div> 
-    </form>
-</div> -->
-
+<!-- 
 <div class="container">
     <div class=" ui middle aligned center aligned grid">
         <div class="column">
@@ -58,7 +46,27 @@
             </form>
         </div>
     </div>
-</div>
+</div> -->
+
+ <!--form area start-->
+    <div class="form">
+
+        <!--login form start-->
+        <form action="/register" method="post" class="loginForm">
+            <h2>Register</h2>
+            <div class="icons">
+                <a href="#"><img src="img/instagram.png" alt="facebook"></a>
+                <a href="#"><img src="img/google-plus.png" alt="google"></a>
+                <a href="#"><img src="img/twitter.png" alt="twitter"></a>
+            </div>
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" id="" placeholder="Password" required>
+            <button type="submit" name="button">Register</button>
+            <p class="options text-center mt-4">Already have an Account? <a href="/login"> Login</a></p>>
+        </form>
+        <!--login form end-->
+    </div>
+    <!--form area end-->
 
 
 <%- include ("partials/footer") -%>

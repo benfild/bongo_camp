@@ -1,18 +1,6 @@
 <%- include ("partials/header") -%>
-<!-- <div class="container">
-    <form class="ui big form" style="margin: 20px auto; width: 50%;" action="/login" method="post">
-        <h1 class="text-center">Login</h1>
-        <div class="form-group">
-            <input class="form-control ui field" type="text" name="username" placeholder="username">
-        </div>
-        <div class="form-group">
-            <input class="form-control" type="password" name="password" placeholder="password">
-        </div>
-        <div class="form-group text-center"><button class="ui button" type="submit">Login</button></div> 
-    </form>
-</div> -->
 
-<div class="container">
+<!-- <div class="container">
     <div class=" ui middle aligned center aligned grid">
         <div class="column">
             <form class="box-shadow login-form ui big form" action="/login" method="post">
@@ -58,7 +46,28 @@
             </form>
         </div>
     </div>
-</div>
+</div> -->
 
+
+     <!--form area start-->
+    <div class="form">
+
+        <!--login form start-->
+        <form action="/login" method="post" class="loginForm">
+            <h2>Login</h2>
+            <div class="icons">
+                <a href="#"><img src="img/instagram.png" alt="facebook"></a>
+                <a href="#"><img src="img/google-plus.png" alt="google"></a>
+                <a href="#"><img src="img/twitter.png" alt="twitter"></a>
+            </div>
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" id="" placeholder="Password" required>
+            <button type="submit" name="button">Login</button>
+            <p class="options">Not Registered?<a href="/register"> Create an Account</a></p>
+        </form>
+        <!--login form end-->
+    </div>
+    <!--form area end-->
+    
 
 <%- include ("partials/footer") -%>
