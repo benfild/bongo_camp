@@ -8,7 +8,7 @@ const express = require("express"),
     methodOverride = require("method-override"),
     User = require("./models/user");
 
-require("dotenv").config();  
+require("dotenv").config(); 
 const MONGO_URI= process.env.MONGO_URI;
 // seedDB = require("./seed");
 // PORT = process.env.port || 3000,
