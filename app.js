@@ -11,7 +11,7 @@ const express = require("express"),
 require("dotenv").config(); 
 const MONGO_URI= process.env.MONGO_URI;
 // seedDB = require("./seed");
-// PORT = process.env.port || 3000,
+const PORT = process.env.port || 3000;
 
 //ROUTES IMPORTS
 const campgroundRoutes = require("./routes/campgrounds"),
@@ -79,4 +79,6 @@ app.use("/campgrounds/:id/comments", commentRoutes);
 
 
 
-app.listen(process.env.PORT, process.env.IP);
+app.listen(PORT, process.env.IP, function(){
+  console.log("Server start at:" + PORT);
+});
