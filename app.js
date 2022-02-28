@@ -11,7 +11,7 @@ const express = require("express"),
 require("dotenv").config(); 
 const MONGO_URI= process.env.MONGO_URI;
 // seedDB = require("./seed");
-const PORT = process.env.port || 3000;
+const PORT = process.env.port;
 
 //ROUTES IMPORTS
 const campgroundRoutes = require("./routes/campgrounds"),
